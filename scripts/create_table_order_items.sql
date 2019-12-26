@@ -9,3 +9,7 @@ create table if not exists orderItems(
    foreign key(orderId) references orders(id),
    foreign key(itemId) references stock(id)
 );
+
+grant insert, select, delete on store.orderItems TO 'admin'@'localhost';
+grant insert, select, delete on store.orderItems TO 'owner'@'localhost';
+grant select on store.orderItems TO 'client'@'localhost';

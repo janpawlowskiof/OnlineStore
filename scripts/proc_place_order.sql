@@ -3,6 +3,13 @@ delimiter //
 create procedure place_order(user_id int)
 begin
     declare order_id int;
+
+    declare exit handler for sqlexception
+    begin
+        rollback;
+        select 'Placing order failed';
+    end;
+
     start transaction;
 
     if user_id not in (select id from users)
@@ -37,3 +44,5 @@ begin
 end //
  
 delimiter ;
+
+grant execute on procedure store.place_order to 'client'@'localhost';

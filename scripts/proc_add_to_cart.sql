@@ -2,6 +2,12 @@ delimiter //
  
 create procedure add_to_cart(user_id int, item_id int, amount int)
 begin
+
+    declare exit handler for sqlexception
+    begin
+        select 'Adding item to cart failed';
+    end;
+
     if user_id not in (select id from users)
     then
         signal sqlstate '45000'
@@ -27,3 +33,5 @@ begin
 end //
  
 delimiter ;
+
+grant execute on procedure store.add_to_cart to 'client'@'localhost';

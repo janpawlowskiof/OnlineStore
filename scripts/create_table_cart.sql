@@ -9,3 +9,7 @@ create table if not exists cart(
    foreign key(userId) references users(id),
    foreign key(itemId) references stock(id)
 );
+
+grant insert, select, delete on store.cart TO 'admin'@'localhost';
+grant insert, select, delete on store.cart TO 'owner'@'localhost';
+grant select, delete on store.cart TO 'client'@'localhost';

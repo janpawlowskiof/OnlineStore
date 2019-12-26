@@ -1,4 +1,5 @@
 recreate_db.sql
+create_users.sql
 create_table_users.sql
 create_table_stock.sql
 create_table_cart.sql
@@ -8,4 +9,5 @@ create_superuser.sql
 proc_add_to_cart.sql
 proc_place_order.sql
 insert_sample_data.sql
+trigger_orders.sql
 test.sql

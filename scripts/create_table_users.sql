@@ -8,3 +8,7 @@ create table if not exists users(
    addressLine2 varchar(255),
    primary key(id)
 );
+
+grant insert, select, delete on store.users TO 'admin'@'localhost';
+grant insert, select, delete on store.users TO 'owner'@'localhost';
+-- grant select on store.users TO 'client'@'localhost';
