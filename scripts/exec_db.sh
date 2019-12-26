@@ -2,9 +2,9 @@
 
 filename='files_to_execute.txt'
 
-sudo mysql < recreate_db.sql
-
-echo 'Executing database...'
+echo 'Executing database...\n'
 while read p; do 
+    echo "Executing $p..."
     sudo mysql store < $p
+    echo "Done\n"
 done < $filename
