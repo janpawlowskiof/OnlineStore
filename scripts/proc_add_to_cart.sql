@@ -1,12 +1,10 @@
 delimiter //
  
-create procedure add_to_cart(user_id int, item_id int, amount int)
+create procedure add_to_cart(email varchar(255), password varchar(255), item_id int, amount int)
 begin
+    declare user_id int;
 
-    declare exit handler for sqlexception
-    begin
-        select 'Adding item to cart failed';
-    end;
+    set user_id = verify_user(email, password);
 
     if user_id not in (select id from users)
     then

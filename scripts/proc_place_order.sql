@@ -1,14 +1,17 @@
 delimiter //
  
-create procedure place_order(user_id int)
+create procedure place_order(email varchar(255), password varchar(255))
 begin
+    declare user_id int;
     declare order_id int;
 
-    declare exit handler for sqlexception
-    begin
-        rollback;
-        select 'Placing order failed';
-    end;
+    set user_id = verify_user(email, password);
+
+    -- declare exit handler for sqlexception
+    -- begin
+    --     rollback;
+    --     select 'Placing order failed';
+    -- end;
 
     start transaction;
 
@@ -27,7 +30,7 @@ begin
     set order_id = (select max(id) from orders) + 1;
     if order_id is null
     then
-    set order_id = 1;
+        set order_id = 1;
     end if;
     
     insert into orders(id, userId, status, placementDate)

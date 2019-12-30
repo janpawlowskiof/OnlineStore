@@ -15,8 +15,8 @@ delimiter //
 create trigger triggerBeforeUpdateOrderItem before update on orderItems
         for each row
         begin
-            set @status = (select status from orders where id = NEW.orderID);
-            if status = 'Completed'
+            set @status = (select status from orders where id = NEW.orderID limit 1);
+            if @status = 'Completed'
             then
                 signal sqlstate '45000'
                 set message_text = 'Cannot modify completed order';
