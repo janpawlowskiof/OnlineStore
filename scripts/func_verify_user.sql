@@ -20,3 +20,5 @@ return user_id;
 end //
 
 delimiter ;
+
+grant execute on function store.verify_user to 'client'@'localhost';

@@ -11,4 +11,4 @@ create table if not exists users(
 
 grant insert, select, delete on store.users TO 'admin'@'localhost';
 grant insert, select, delete on store.users TO 'owner'@'localhost';
--- grant select on store.users TO 'client'@'localhost';
+grant insert on store.users TO 'client'@'localhost';
