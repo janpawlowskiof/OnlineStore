@@ -1,6 +1,6 @@
 delimiter //
  
-create procedure add_to_cart(email varchar(255), password varchar(255), item_id int, amount int)
+create procedure add_to_cart(email varchar(255), password varchar(255), item_id int, new_amount int)
 begin
     declare user_id int;
 
@@ -24,9 +24,14 @@ begin
         set message_text = 'Item is unavailable';
     end if;
 
-    set @price = (select price from stock where id = item_id);
-    delete from cart where userId = user_id and itemId = item_id;
-    insert into cart(userId, itemId, amount, price) values (user_id, item_id, amount, @price);
+    
+    if (user_id, item_id) in (select userId, itemId from cart)
+    then
+        update cart set amount = amount + new_amount where userId = user_id and itemId = item_id;
+    else
+        set @price = (select price from stock where id = item_id);
+        insert into cart(userId, itemId, amount, price) values (user_id, item_id, new_amount, @price);
+    end if;
     
 end //
  

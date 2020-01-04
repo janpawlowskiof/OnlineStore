@@ -7,6 +7,7 @@ create_table_orders.sql
 create_table_order_items.sql
 create_superuser.sql
 proc_add_to_cart.sql
+proc_remove_from_cart.sql
 proc_place_order.sql
 insert_sample_data.sql
 trigger_orders.sql
