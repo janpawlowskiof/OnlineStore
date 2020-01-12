@@ -38,8 +38,8 @@ begin
     (order_id, user_id, 'Waiting', curdate());
 
     insert into orderItems(orderId, itemId, amount, price)
-    (select order_id, itemId, amount, price from cart
-    where userId = user_id);
+    select order_id, itemId, amount, price from cart
+    where userId = user_id;
 
     delete from cart where userId = user_id;
     
