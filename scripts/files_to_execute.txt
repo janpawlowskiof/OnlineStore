@@ -12,5 +12,5 @@ proc_place_order.sql
 insert_sample_data.sql
 trigger_orders.sql
 func_verify_user.sql
-view_create.sql
+view_order_items.sql
 test.sql
