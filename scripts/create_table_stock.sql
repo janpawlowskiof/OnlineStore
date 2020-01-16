@@ -7,6 +7,6 @@ create table if not exists stock(
    primary key(id)
 );
 
-grant insert, select, delete on store.stock TO 'admin'@'localhost';
-grant insert, select, delete on store.stock TO 'owner'@'localhost';
-grant select on store.stock TO 'client'@'localhost';
+grant select on store.stock TO 'admin'@'localhost';
+grant insert, update, select, delete on store.stock TO 'owner'@'localhost';
+/* grant select on store.stock TO 'client'@'localhost'; */

@@ -13,4 +13,5 @@ insert_sample_data.sql
 trigger_orders.sql
 func_verify_user.sql
 view_order_items.sql
+view_stock.sql
 test.sql
