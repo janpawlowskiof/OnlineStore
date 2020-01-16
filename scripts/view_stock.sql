@@ -1,6 +1,6 @@
 create view view_stock
 as
-    select id, name, concat(convert(floor(price/100), char), 'zl ', convert(mod(price, 100), char), 'gr') as price, description
+    select id, name, available, concat(convert(floor(price/100), char), 'zl ', convert(mod(price, 100), char), 'gr') as price, description
     from
     stock;
 

@@ -11,7 +11,9 @@ proc_remove_from_cart.sql
 proc_place_order.sql
 insert_sample_data.sql
 trigger_orders.sql
+trigger_stock.sql
 func_verify_user.sql
 view_order_items.sql
+view_orders.sql
 view_stock.sql
 test.sql
