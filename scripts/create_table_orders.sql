@@ -10,5 +10,5 @@ create table if not exists orders(
 );
 
 grant insert, select, delete on store.orders TO 'admin'@'localhost';
-grant insert, select, delete on store.orders TO 'owner'@'localhost';
+grant insert, update, select, delete on store.orders TO 'owner'@'localhost';
 grant select on store.orders TO 'client'@'localhost';
